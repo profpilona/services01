@@ -1,0 +1,23 @@
+{
+  "name": "services01",
+  "version": "1.0.0",
+  "description": "labo 01 du cours services Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://profpilona@github.com/profpilona/services01.git"
+  },
+  "author": "Alain Pilon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/profpilona/services01/issues"
+  },
+  "homepage": "https://github.com/profpilona/services01#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.11.2"
+  }
+}
