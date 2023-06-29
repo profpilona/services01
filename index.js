@@ -9,22 +9,20 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://alain:test911@cluster0.yml6m.mongodb.net/labo01');
+mongoose.connect('mongodb+srv://alain:test911@cluster0.yml6m.mongodb.net/services');
 const db = mongoose.connection;
 db.on('error', (err) => {
     console.error('erreur de BD:', err);
 });
 db.once('open', ()=>{
     console.log('Connexion à la BD OK');
-})
-app.get('/', (requete, reponse)=>{
-    reponse.send('Allo tout le monde!');
 });
-app.get('/index.html', (requete, reponse)=>{
-    reponse.send('Allo tout le monde de la page index.html!');
-});
-app.get('/truc', (requete, reponse)=>{
-    reponse.send('Salut truc!!!');
-});
+
+app.use(express.json());
+
+app.use('/', require('./routes/base.js'));
+app.use('/api/livres', require('./routes/livres'));
+app.use('/api/users', require('./routes/users'));
+
 app.listen(PORT);
 console.log(`Serveur Web fonctionnel sur le port ${PORT}`);
