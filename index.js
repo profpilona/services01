@@ -6,7 +6,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://alain:test911@cluster0.yml6m.mongodb.net/labo01');
@@ -22,6 +22,9 @@ app.get('/', (requete, reponse)=>{
 });
 app.get('/index.html', (requete, reponse)=>{
     reponse.send('Allo tout le monde de la page index.html!');
+});
+app.get('/truc', (requete, reponse)=>{
+    reponse.send('Salut truc!!!');
 });
 app.listen(PORT);
 console.log(`Serveur Web fonctionnel sur le port ${PORT}`);
