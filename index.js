@@ -6,7 +6,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://alain:test911@cluster0.yml6m.mongodb.net/services');

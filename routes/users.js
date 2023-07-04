@@ -13,8 +13,4 @@ router.get('/', (requete, reponse)=>{
     }, 25);
 });
 
-router.get('/autre', (requete, reponse) => {
-    reponse.send('dans /api/users/autre bla bla bla');
-});
-
 module.exports = router;

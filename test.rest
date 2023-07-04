@@ -1,0 +1,48 @@
+// Alain Pilon 
+// date: 4 juillet 2023
+// Fichier de tests des différentes fonctions de mon API REST
+
+// test de API pour récupérer tous les livres
+###
+GET http://127.0.0.1:8000/api/livres
+
+// test de API pour récupérer tous les users
+###
+GET http://127.0.0.1:8000/api/users
+
+// test. de API POST pour ajouter un livre dans la BD
+###
+POST http://127.0.0.1:8000/api/livres
+Content-type: application/json
+
+{
+    "_id": "9782896151177",
+    "titre": "Mon beau titre",
+    "auteur": "Moi",
+    "editeur": "Lui",
+    "nbPages": 33,
+    "langue": "français/french",
+    "prix": 99.95,
+    "resume": "Bonjour. voici un résumé",
+    "date": "2023-07-31"
+}
+
+// test. de API PUT pour modifier un livre dans la BD
+###
+PUT http://127.0.0.1:8000/api/livres/9782896151177
+Content-type: application/json
+
+{
+    "titre": "Mon NOUVEAU beau titre",
+    "auteur": "Moi en version 2",
+    "editeur": "Lui encore LUI",
+    "nbPages": 99,
+    "langue": "anglais/english",
+    "prix": 999.95,
+    "resume": "Bonjour. voici ENCORE un résumé",
+    "date": "2023-07-28"
+}
+
+// test. de API DELETE pour supprimer un livre de la BD
+###
+DELETE http://127.0.0.1:8000/api/livres/9782896151177

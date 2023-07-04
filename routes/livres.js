@@ -12,13 +12,29 @@ router.get('/', (requete, reponse)=>{
         reponse.json(livres);
     }, 25);
 });
-router.get('/kekchose', (requete, reponse)=>{
-    reponse.send('kek chose');
+
+router.post('/', (requete, reponse)=>{
+    let livre = requete.body;
+    // console.log(livre);
+    Livres.ajoutLivre(livre, (err, msgRetour)=>{
+        if (err) throw err;
+        reponse.json(msgRetour);
+    });
 });
-router.get('/autre', (requete, reponse)=>{
-    reponse.send('autre chose');
+router.put('/:isbn', (requete, reponse)=>{
+    let isbn = requete.params.isbn;
+    let nouveauLivre = requete.body;
+    Livres.modifierLivre(isbn, nouveauLivre, (err, resultat)=>{
+        if (err) throw err;
+        reponse.json(resultat);
+    });
 });
-router.get('/abc', (requete, reponse) => {
-    reponse.send('abc');
+router.delete('/:isbn', (requete, reponse)=>{
+    let isbn = requete.params.isbn;
+    console.log(isbn, 'a supprimer');
+    Livres.supprimerLivre(isbn, (err, resultat)=>{
+        if (err) throw err;
+        reponse.json(resultat);
+    });
 });
 module.exports = router;
