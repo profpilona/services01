@@ -13,6 +13,35 @@ router.get('/', (requete, reponse)=>{
     }, 25);
 });
 
+router.get('/isbn/:isbn', (requete, reponse)=>{
+    let isbn = requete.params.isbn;
+    Livres.getLivresParISBN(isbn, (err, livres)=>{
+        if (err) throw err;
+        reponse.json(livres);
+    }, 25);
+});
+
+router.get('/titre/:titre', (requete, reponse)=>{
+    let titre = requete.params.titre;
+    Livres.getLivresParChamp("titre", titre, (err, livres)=>{
+        if (err) throw err;
+        reponse.json(livres);
+    }, 25);
+});
+router.get('/auteur/:auteur', (requete, reponse)=>{
+    let auteur = requete.params.auteur;
+    Livres.getLivresParChamp("auteur", auteur, (err, livres)=>{
+        if (err) throw err;
+        reponse.json(livres);
+    }, 25);
+});
+router.get('/resume/:resume', (requete, reponse)=>{
+    let resume = requete.params.resume;
+    Livres.getLivresParChamp("resume", resume, (err, livres)=>{
+        if (err) throw err;
+        reponse.json(livres);
+    }, 25);
+});
 router.post('/', (requete, reponse)=>{
     let livre = requete.body;
     // console.log(livre);

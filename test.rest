@@ -6,6 +6,30 @@
 ###
 GET http://127.0.0.1:8000/api/livres
 
+// test de API pour récupérer tous les livres dont l'isbn est demandé
+###
+GET http://127.0.0.1:8000/api/livres/isbn/9782896152254
+
+// test de API pour récupérer tous les livres qui contiennent un titre
+###
+GET http://127.0.0.1:8000/api/livres/titre/café
+
+// test de API pour récupérer tous les livres qui contiennent un titre
+###
+GET http://127.0.0.1:8000/api/livres/titre/flots
+
+// test de API pour récupérer tous les livres qui contiennent un certain auteur
+###
+GET http://127.0.0.1:8000/api/livres/auteur/t
+
+// test de API pour récupérer tous les livres qui contiennent un certain résumé
+###
+GET http://127.0.0.1:8000/api/livres/resume/noc
+
+// test de API pour récupérer tous les livres qui contiennent un certain auteur
+###
+GET http://127.0.0.1:8000/api/livres/auteur/o
+
 // test de API pour récupérer tous les users
 ###
 GET http://127.0.0.1:8000/api/users

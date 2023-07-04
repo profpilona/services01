@@ -51,6 +51,21 @@ module.exports.getLivres = (callback, limit) => {
     Livres.find(callback).limit(limit);
 }
 
+// fonction pour obtenir tous les livres de la collection qui correspondent à l'ISBN
+// reçoit en paramètre un ISBN, une fonction callback et le nombre maximum (limit) de livres à retourner
+module.exports.getLivresParISBN = (isbn, callback, limit) => {
+    let filtre = {"_id": isbn};
+    Livres.find(filtre, callback).limit(limit);
+}
+
+// fonction pour obtenir tous les livres de la collection qui contiennent une partie d'un champ
+// reçoit en paramètre le champ, les caractères à chercher dans le champ, une fonction callback et le nombre maximum (limit) de livres à retourner
+module.exports.getLivresParChamp = (champ, critere, callback, limit) => {
+    let filtre = {[champ]: RegExp(critere, "i")};
+    console.log(filtre);
+    Livres.find(filtre, callback).limit(limit);
+}
+
 // fonction pour ajouter un livre dans la collection
 // reçoit en paramètre le livre à ajouter et une fonction callback
 module.exports.ajoutLivre = (livre, callback) => {
