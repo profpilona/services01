@@ -30,10 +30,6 @@ GET http://127.0.0.1:8000/api/livres/resume/noc
 ###
 GET http://127.0.0.1:8000/api/livres/auteur/o
 
-// test de API pour récupérer tous les users
-###
-GET http://127.0.0.1:8000/api/users
-
 // test. de API POST pour ajouter un livre dans la BD
 ###
 POST http://127.0.0.1:8000/api/livres
@@ -70,3 +66,47 @@ Content-type: application/json
 // test. de API DELETE pour supprimer un livre de la BD
 ###
 DELETE http://127.0.0.1:8000/api/livres/9782896151177
+
+// test de API pour récupérer tous les users
+###
+GET http://127.0.0.1:8000/api/users
+
+// test de API pour récupérer tous les usagers dont l'id est demandé
+###
+GET http://127.0.0.1:8000/api/users/_id/64a47added3c0c34dae0ba3c
+
+// test de API pour récupérer tous les usagers qui contiennent un nom donné
+###
+GET http://127.0.0.1:8000/api/users/nom/o
+
+// test de API pour récupérer tous les usagers qui contiennent un login donné
+###
+GET http://127.0.0.1:8000/api/users/login/ai
+
+// test. de API POST pour ajouter un usager dans la BD
+###
+POST http://127.0.0.1:8000/api/users
+Content-type: application/json
+
+{
+    "nom": "Nouveau 4",
+    "login": "nouveau4@gmail.com",
+    "pwd": "1234",
+    "date": "2023-06-29"
+}
+
+// test. de API PUT pour modifier un usager dans la BD
+###
+PUT http://127.0.0.1:8000/api/users/64a47b31ed3c0c34dae0ba41
+Content-type: application/json
+
+{
+    "nom": "Nouveau ABC",
+    "login": "nouveauABC@gmail.com",
+    "pwd": "1234",
+    "date": "2023-06-29"
+}
+
+// test. de API DELETE pour supprimer un usager de la BD
+###
+DELETE http://127.0.0.1:8000/api/users/64a47b31ed3c0c34dae0ba41
