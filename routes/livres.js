@@ -10,7 +10,7 @@ router.get('/', (requete, reponse)=>{
     Livres.getLivres((err, livres)=>{
         if (err) throw err;
         reponse.json(livres);
-    }, 25);
+    }, 250);
 });
 
 router.get('/isbn/:isbn', (requete, reponse)=>{

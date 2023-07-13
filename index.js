@@ -9,7 +9,7 @@ const app = express();
 const PORT = 8000;
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://alain:test911@cluster0.yml6m.mongodb.net/services');
+mongoose.connect('mongodb+srv://alain:alainalain@cluster0.yml6m.mongodb.net/services');
 const db = mongoose.connection;
 db.on('error', (err) => {
     console.error('erreur de BD:', err);
